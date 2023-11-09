@@ -6,7 +6,7 @@
 /*   By: asaber <asaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:17:44 by asaber            #+#    #+#             */
-/*   Updated: 2023/11/08 19:59:49 by asaber           ###   ########.fr       */
+/*   Updated: 2023/11/09 17:05:14 by asaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ std::string	start_program(void)
 	std::string	num;
 	std::cout << "Select what do you want!" << std::endl;
 	std::getline(std::cin, num);
+	if (std::cin.eof())
+		exit(1);
 	return num;
 }
 
@@ -37,16 +39,16 @@ int	main()
 {
 	PhoneBook	P_book;
 	std::string	str;
-	P_book.increment_count();
 	ft_start();
 	while (1)
 	{
 		str = start_program();
 		if (str == "ADD")
 			P_book.add_contact();
-		else if (str == "SAERCH")
+		else if (str == "SEARCH")
 			P_book.get_contacts();
-		if(str == "EXIT")
+		
+		else if(str == "EXIT")
 			exit(0);  
 	}
 }
